@@ -130,7 +130,7 @@ export default function Companionship() {
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/7551473/pexels-photo-7551473.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                src="https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
                 alt="Senior and caregiver enjoying conversation"
                 className="rounded-lg shadow-lg"
               />
