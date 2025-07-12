@@ -142,9 +142,38 @@ export default function NewsArticleModal({
           </Button>
         </CardHeader>
 
-        <CardContent className="p-0">
+        <CardContent className="p-6">
+          {/* Article Header */}
+          <h1 className="text-2xl md:text-3xl font-bold text-care-800 mb-4">
+            {article.title}
+          </h1>
+
+          {/* Article Meta */}
+          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6 pb-4 border-b">
+            <div className="flex items-center space-x-2">
+              <Calendar className="h-4 w-4" />
+              <span>{article.date}</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <User className="h-4 w-4" />
+              <span>{article.author}</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Clock className="h-4 w-4" />
+              <span>{article.readTime}</span>
+            </div>
+          </div>
+
+          {/* Article Content */}
+          <div className="max-h-96 overflow-y-auto mb-6">
+            <div
+              className="prose prose-lg max-w-none text-muted-foreground leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: fullContent }}
+            />
+          </div>
+
           {/* Article Image */}
-          <div className="aspect-video overflow-hidden">
+          <div className="aspect-video overflow-hidden rounded-lg mb-4">
             <img
               src={article.image}
               alt={article.title}
@@ -152,50 +181,19 @@ export default function NewsArticleModal({
             />
           </div>
 
-          <div className="p-6">
-            {/* Article Header */}
-            <h1 className="text-2xl md:text-3xl font-bold text-care-800 mb-4">
-              {article.title}
-            </h1>
-
-            {/* Article Meta */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6 pb-4 border-b">
-              <div className="flex items-center space-x-2">
-                <Calendar className="h-4 w-4" />
-                <span>{article.date}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <User className="h-4 w-4" />
-                <span>{article.author}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Clock className="h-4 w-4" />
-                <span>{article.readTime}</span>
-              </div>
+          {/* Article Actions */}
+          <div className="flex justify-between items-center pt-4 border-t">
+            <div className="flex space-x-2">
+              <Button variant="outline" size="sm">
+                <Share2 className="h-4 w-4 mr-2" />
+                Share
+              </Button>
+              <Button variant="outline" size="sm">
+                <Bookmark className="h-4 w-4 mr-2" />
+                Save
+              </Button>
             </div>
-
-            {/* Article Content */}
-            <div className="max-h-96 overflow-y-auto">
-              <div
-                className="prose prose-lg max-w-none text-muted-foreground leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: fullContent }}
-              />
-            </div>
-
-            {/* Article Actions */}
-            <div className="flex justify-between items-center mt-6 pt-4 border-t">
-              <div className="flex space-x-2">
-                <Button variant="outline" size="sm">
-                  <Share2 className="h-4 w-4 mr-2" />
-                  Share
-                </Button>
-                <Button variant="outline" size="sm">
-                  <Bookmark className="h-4 w-4 mr-2" />
-                  Save
-                </Button>
-              </div>
-              <Button onClick={onClose}>Close Article</Button>
-            </div>
+            <Button onClick={onClose}>Close Article</Button>
           </div>
         </CardContent>
       </Card>
