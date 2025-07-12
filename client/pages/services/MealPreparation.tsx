@@ -35,7 +35,7 @@ export default function MealPreparation() {
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/7551659/pexels-photo-7551659.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                src="https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
                 alt="Caregiver preparing healthy meal"
                 className="rounded-lg shadow-lg"
               />
