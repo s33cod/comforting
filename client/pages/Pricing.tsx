@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
-  DollarSign,
+  PoundSterling,
   CheckCircle,
   Clock,
   Users,
@@ -134,7 +134,7 @@ export default function Pricing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center space-x-3 mb-6">
             <div className="bg-care-500 p-3 rounded-lg">
-              <DollarSign className="h-8 w-8 text-white" />
+              <PoundSterling className="h-8 w-8 text-white" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-care-800">
               Transparent Pricing

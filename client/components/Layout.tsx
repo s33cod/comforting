@@ -17,6 +17,8 @@ import {
 import { cn } from "@/lib/utils";
 import BackToTop from "@/components/BackToTop";
 import Chatbot from "@/components/Chatbot";
+import CookieConsent from "@/components/CookieConsent";
+import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -27,6 +29,9 @@ interface LayoutProps {
 export default function Layout({ children, title, description }: LayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+
+  // Scroll to top on route change
+  useScrollToTop();
 
   const navigation = [
     { name: "Home", href: "/", icon: HomeIcon },
@@ -81,11 +86,11 @@ export default function Layout({ children, title, description }: LayoutProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center justify-start">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2Fc958b415ffc540ad9c90ee1b661265c5%2Fbe0781d3cc6e400b87fe0e5566e770d6"
                 alt="Comforting Care Solutions Logo"
-                className="h-10 w-auto sm:h-12 object-contain"
+                className="h-[75px] w-auto object-contain"
               />
             </Link>
 
@@ -328,6 +333,9 @@ export default function Layout({ children, title, description }: LayoutProps) {
 
       {/* Chatbot */}
       <Chatbot />
+
+      {/* Cookie Consent */}
+      <CookieConsent />
     </div>
   );
 }

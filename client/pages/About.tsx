@@ -42,11 +42,11 @@ const values = [
 
 const teamMembers = [
   {
-    name: "Sarah Mitchell",
-    role: "Founder & Director of Care",
+    name: "Comfort Akiga",
+    role: "Founder/Owner - Manager",
     image:
-      "https://images.pexels.com/photos/7551473/pexels-photo-7551473.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
-    bio: "With over 15 years of experience in healthcare, Sarah founded Comforting Care Solutions to provide personalized, compassionate care in the comfort of home.",
+      "https://images.pexels.com/photos/3913025/pexels-photo-3913025.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
+    bio: "With over 15 years of experience in healthcare, Comfort founded Comforting Care Solutions to provide personalized, compassionate care in the comfort of home. As the owner and manager, she ensures the highest standards of care delivery.",
   },
   {
     name: "Dr. Michael Thompson",
