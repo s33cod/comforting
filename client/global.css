@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 198 88% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 220 20% 15%;
+
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 198 88% 28%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 198 88% 28%;
+
+    --radius: 0.75rem;
+
+    /* Care service brand colors - calming blues and teals */
+    --care-50: 198 100% 97%;
+    --care-100: 198 95% 92%;
+    --care-200: 198 89% 85%;
+    --care-300: 198 84% 75%;
+    --care-400: 198 79% 60%;
+    --care-500: 198 88% 28%;
+    --care-600: 198 90% 22%;
+    --care-700: 198 87% 18%;
+    --care-800: 198 84% 15%;
+    --care-900: 198 80% 12%;
+
+    /* Trust colors - deeper blues */
+    --trust-50: 217 100% 97%;
+    --trust-100: 217 96% 91%;
+    --trust-200: 217 91% 82%;
+    --trust-300: 217 85% 70%;
+    --trust-400: 217 78% 56%;
+    --trust-500: 217 91% 60%;
+    --trust-600: 217 83% 53%;
+    --trust-700: 217 76% 44%;
+    --trust-800: 217 70% 36%;
+    --trust-900: 217 65% 29%;
+
+    /* Warm accent colors - soft oranges/peaches */
+    --warm-50: 24 100% 97%;
+    --warm-100: 24 100% 92%;
+    --warm-200: 24 97% 85%;
+    --warm-300: 24 94% 76%;
+    --warm-400: 24 91% 65%;
+    --warm-500: 24 88% 54%;
+    --warm-600: 24 85% 43%;
+    --warm-700: 24 82% 34%;
+    --warm-800: 24 78% 26%;
+    --warm-900: 24 75% 20%;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 27% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 27% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 27% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 198 88% 45%;
+    --primary-foreground: 220 27% 8%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 198 88% 45%;
+    --accent-foreground: 220 27% 8%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 198 88% 45%;
+
+    /* Dark mode care colors */
+    --care-50: 198 30% 8%;
+    --care-100: 198 35% 12%;
+    --care-200: 198 40% 16%;
+    --care-300: 198 45% 22%;
+    --care-400: 198 50% 30%;
+    --care-500: 198 88% 45%;
+    --care-600: 198 90% 55%;
+    --care-700: 198 92% 65%;
+    --care-800: 198 94% 75%;
+    --care-900: 198 96% 85%;
+
+    /* Dark mode trust colors */
+    --trust-50: 217 30% 8%;
+    --trust-100: 217 35% 12%;
+    --trust-200: 217 40% 16%;
+    --trust-300: 217 45% 22%;
+    --trust-400: 217 50% 30%;
+    --trust-500: 217 85% 55%;
+    --trust-600: 217 88% 65%;
+    --trust-700: 217 90% 72%;
+    --trust-800: 217 92% 80%;
+    --trust-900: 217 94% 88%;
+
+    /* Dark mode warm colors */
+    --warm-50: 24 30% 8%;
+    --warm-100: 24 35% 12%;
+    --warm-200: 24 40% 16%;
+    --warm-300: 24 45% 22%;
+    --warm-400: 24 50% 30%;
+    --warm-500: 24 80% 55%;
+    --warm-600: 24 85% 65%;
+    --warm-700: 24 88% 72%;
+    --warm-800: 24 90% 80%;
+    --warm-900: 24 92% 88%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
