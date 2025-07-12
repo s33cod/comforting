@@ -152,7 +152,7 @@ export default function Shopping() {
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                src="https://images.pexels.com/photos/1634278/pexels-photo-1634278.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
                 alt="Professional shopping service"
                 className="rounded-lg shadow-lg"
               />
