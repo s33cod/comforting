@@ -1,7 +1,9 @@
+import { useState } from "react";
 import Layout from "@/components/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import NewsArticleModal from "@/components/NewsArticleModal";
 import {
   Newspaper,
   Calendar,
@@ -13,14 +15,24 @@ import {
   Clock,
 } from "lucide-react";
 
+interface NewsArticle {
+  title: string;
+  excerpt: string;
+  image: string;
+  date: string;
+  author: string;
+  category: string;
+  readTime: string;
+}
+
 const featuredArticle = {
   title: "New Partnership with Local NHS Trust Enhances Medical Support",
   excerpt:
     "We're excited to announce our new partnership with the Regional NHS Trust, bringing enhanced medical support and coordination to our clients. This collaboration ensures seamless healthcare delivery right in your home.",
   image:
-    "https://images.pexels.com/photos/7551659/pexels-photo-7551659.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop",
+    "https://images.pexels.com/photos/3823488/pexels-photo-3823488.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop",
   date: "December 15, 2024",
-  author: "Sarah Mitchell",
+  author: "Comfort Akiga",
   category: "Partnership",
   readTime: "5 min read",
 };
@@ -31,9 +43,9 @@ const newsArticles = [
     excerpt:
       "As temperatures drop, it's important to take extra precautions to ensure the safety and comfort of elderly loved ones. Here are our top winter care tips.",
     image:
-      "https://images.pexels.com/photos/7551652/pexels-photo-7551652.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop",
+      "https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop",
     date: "December 10, 2024",
-    author: "Dr. Michael Thompson",
+    author: "Comfort Akiga",
     category: "Health Tips",
     readTime: "4 min read",
   },
@@ -44,7 +56,7 @@ const newsArticles = [
     image:
       "https://images.pexels.com/photos/7551473/pexels-photo-7551473.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop",
     date: "December 5, 2024",
-    author: "Emma Davies",
+    author: "Comfort Akiga",
     category: "Company News",
     readTime: "3 min read",
   },
@@ -55,7 +67,7 @@ const newsArticles = [
     image:
       "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop",
     date: "November 28, 2024",
-    author: "Lisa Johnson",
+    author: "Comfort Akiga",
     category: "Wellness",
     readTime: "6 min read",
   },
@@ -64,9 +76,9 @@ const newsArticles = [
     excerpt:
       "Don't let your loved ones spend the holidays alone. Our special holiday care packages ensure everyone feels included and cared for during the festive season.",
     image:
-      "https://images.pexels.com/photos/8032934/pexels-photo-8032934.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop",
+      "https://images.pexels.com/photos/5793953/pexels-photo-5793953.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop",
     date: "November 20, 2024",
-    author: "Sarah Mitchell",
+    author: "Comfort Akiga",
     category: "Services",
     readTime: "4 min read",
   },
@@ -75,9 +87,9 @@ const newsArticles = [
     excerpt:
       "Dementia affects millions of families. Our comprehensive guide helps families understand the condition and how to provide the best possible care.",
     image:
-      "https://images.pexels.com/photos/7551659/pexels-photo-7551659.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop",
+      "https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop",
     date: "November 15, 2024",
-    author: "Dr. Michael Thompson",
+    author: "Comfort Akiga",
     category: "Health Education",
     readTime: "8 min read",
   },
@@ -86,9 +98,9 @@ const newsArticles = [
     excerpt:
       "We're growing! Meet our newest team members who bring additional expertise in specialized medical care and companionship services.",
     image:
-      "https://images.pexels.com/photos/7551652/pexels-photo-7551652.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop",
+      "https://images.pexels.com/photos/4226140/pexels-photo-4226140.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop",
     date: "November 8, 2024",
-    author: "Emma Davies",
+    author: "Comfort Akiga",
     category: "Team News",
     readTime: "3 min read",
   },
@@ -131,6 +143,21 @@ const quickStats = [
 ];
 
 export default function News() {
+  const [selectedArticle, setSelectedArticle] = useState<NewsArticle | null>(
+    null,
+  );
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openArticle = (article: NewsArticle) => {
+    setSelectedArticle(article);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedArticle(null);
+  };
+
   return (
     <Layout
       title="News & Updates"
@@ -223,11 +250,9 @@ export default function News() {
                     <span>{featuredArticle.readTime}</span>
                   </div>
                 </div>
-                <Button asChild>
-                  <Link to="/contact" className="flex items-center space-x-2">
-                    <span>Read Full Article</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
+                <Button onClick={() => openArticle(featuredArticle)}>
+                  <span>Read Full Article</span>
+                  <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </CardContent>
             </div>
@@ -296,8 +321,12 @@ export default function News() {
                           <span>{article.readTime}</span>
                         </div>
                       </div>
-                      <Button asChild variant="outline" size="sm">
-                        <Link to="/contact">Read More</Link>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => openArticle(article)}
+                      >
+                        Read More
                       </Button>
                     </CardContent>
                   </Card>
@@ -364,6 +393,13 @@ export default function News() {
           </div>
         </div>
       </section>
+
+      {/* News Article Modal */}
+      <NewsArticleModal
+        article={selectedArticle}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </Layout>
   );
 }
