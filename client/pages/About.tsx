@@ -42,7 +42,7 @@ const values = [
 
 const teamMembers = [
   {
-    name: "Comfort Akiga",
+    name: "Ms Comfort Akiga",
     role: "Founder/Owner - Manager",
     image:
       "https://images.pexels.com/photos/3913025/pexels-photo-3913025.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
